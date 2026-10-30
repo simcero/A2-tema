@@ -18,7 +18,7 @@ java {
 }
 
 application {
- mainClass = "interpreter.Main"
+ mainClass = "java.interpreter.Main"
 }
 
 tasks.named<JavaExec>("run") {
