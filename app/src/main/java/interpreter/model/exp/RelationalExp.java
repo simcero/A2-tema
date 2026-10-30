@@ -1,5 +1,6 @@
 package interpreter.model.exp;
 
+import interpreter.exceptions.ExpressionException;
 import interpreter.exceptions.MyException;
 import interpreter.model.adt.IDictionary;
 import interpreter.model.type.IntType;
@@ -22,11 +23,11 @@ public class RelationalExp implements IExp {
     public IValue eval(IDictionary<String, IValue> tbl) throws MyException {
         IValue v1 = e1.eval(tbl);
         if (!v1.getType().equals(new IntType())) {
-            throw new MyException("First operand is not an integer.");
+            throw new ExpressionException("First operand is not an integer.");
         }
         IValue v2 = e2.eval(tbl);
         if (!v2.getType().equals(new IntType())) {
-            throw new MyException("Second operand is not an integer.");
+            throw new ExpressionException("Second operand is not an integer.");
         }
 
         int n1 = ((IntValue) v1).val();
@@ -39,7 +40,7 @@ public class RelationalExp implements IExp {
             case "!=": return new BoolValue(n1 != n2);
             case ">": return new BoolValue(n1 > n2);
             case ">=": return new BoolValue(n1 >= n2);
-            default: throw new MyException("Invalid relational operator!");
+            default: throw new ExpressionException("Invalid relational operator!");
         }
     }
 

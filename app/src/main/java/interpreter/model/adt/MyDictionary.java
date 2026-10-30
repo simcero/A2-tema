@@ -1,5 +1,6 @@
 package interpreter.model.adt;
 
+import interpreter.exceptions.ADTException;
 import interpreter.exceptions.MyException;
 import interpreter.exceptions.MyException;
 
@@ -20,18 +21,18 @@ public class MyDictionary<K, V> implements IDictionary<K, V> {
     }
 
     @Override
-    public V lookup(K key) throws MyException {
+    public V lookup(K key) throws ADTException {
         V value = dictionary.get(key);
         if (value == null) {
-            throw new MyException("Key " + key + " is not defined in the dictionary.");
+            throw new ADTException("Key " + key + " is not defined in the dictionary.");
         }
         return value;
     }
 
     @Override
-    public void update(K key, V value) throws MyException {
+    public void update(K key, V value) throws ADTException {
         if (!dictionary.containsKey(key)) {
-            throw new MyException("Key " + key + " is not defined, cannot update.");
+            throw new ADTException("Key " + key + " is not defined, cannot update.");
         }
         dictionary.put(key, value);
     }
