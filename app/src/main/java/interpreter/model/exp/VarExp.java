@@ -1,23 +1,17 @@
 package interpreter.model.exp;
 
 import interpreter.exceptions.MyException;
-import interpreter.model.adt.MyIDictionary;
+import interpreter.model.adt.IDictionary;
 import interpreter.model.value.IValue;
 
-public class VarExp implements IExp {
-    private final String key;
-
-    public VarExp(String k) {
-        this.key = k;
-    }
-
+public record VarExp(String varName) implements IExp {
     @Override
-    public IValue eval(MyIDictionary<String, IValue> tbl) throws MyException {
-        return tbl.lookUp(key);
+    public IValue eval(IDictionary<String, IValue> symTable) throws MyException {
+        return symTable.lookup(varName);
     }
 
     @Override
     public String toString() {
-        return key;
+        return varName;
     }
 }

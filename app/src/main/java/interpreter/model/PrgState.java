@@ -1,58 +1,66 @@
 package interpreter.model;
 
-import interpreter.model.adt.MyIDictionary;
-import interpreter.model.adt.MyIList;
-import interpreter.model.adt.MyIStack;
-import interpreter.model.value.IValue;
+import interpreter.model.adt.IDictionary;
+import interpreter.model.adt.IList;
+import interpreter.model.adt.IStack;
 import interpreter.model.stmt.IStmt;
+import interpreter.model.value.IValue;
 
 public class PrgState {
-    private MyIStack<IStmt> exeStack;
-    private MyIDictionary<String, IValue> symTable;
-    private MyIList<IValue> out;
-    private IStmt originalProgram; // Optional fields depending on exact lab requirements, but very helpful
+    private IStack<IStmt> exeStack;
+    private IDictionary<String, IValue> symTable;
+    private IList<IValue> out;
+    private IStmt originalProgram;
 
-    public PrgState(MyIStack<IStmt> stack, MyIDictionary<String, IValue> symTable, MyIList<IValue> out, IStmt program) {
-        this.exeStack = stack;
+    public PrgState(IStack<IStmt> exeStack, IDictionary<String, IValue> symTable,
+                    IList<IValue> out, IStmt program) {
+        this.exeStack = exeStack;
         this.symTable = symTable;
         this.out = out;
-        this.originalProgram = program; // You can deep copy if needed later
-        stack.push(program);
+        this.originalProgram = program;
+        exeStack.push(program);
     }
 
-    public MyIStack<IStmt> getExeStack() {
+    // Getters
+    public IStack<IStmt> getExeStack() {
         return exeStack;
     }
 
-    public void setExeStack(MyIStack<IStmt> exeStack) {
-        this.exeStack = exeStack;
-    }
-
-    public MyIDictionary<String, IValue> getSymTable() {
+    public IDictionary<String, IValue> getSymTable() {
         return symTable;
     }
 
-    public void setSymTable(MyIDictionary<String, IValue> symTable) {
-        this.symTable = symTable;
-    }
-
-    public MyIList<IValue> getOut() {
+    public IList<IValue> getOut() {
         return out;
-    }
-
-    public void setOut(MyIList<IValue> out) {
-        this.out = out;
     }
 
     public IStmt getOriginalProgram() {
         return originalProgram;
     }
 
+    // Setters
+    public void setExeStack(IStack<IStmt> exeStack) {
+        this.exeStack = exeStack;
+    }
+
+    public void setSymTable(IDictionary<String, IValue> symTable) {
+        this.symTable = symTable;
+    }
+
+    public void setOut(IList<IValue> out) {
+        this.out = out;
+    }
+
+    public void setOriginalProgram(IStmt originalProgram) {
+        this.originalProgram = originalProgram;
+    }
+
     @Override
     public String toString() {
         return "PrgState:\n" +
-                "ExeStack: " + exeStack + "\n" +
-                "SymTable: " + symTable + "\n" +
-                "Out: " + out + "\n---";
+                "ExeStack:\n" + exeStack + "\n" +
+                "SymTable:\n" + symTable + "\n" +
+                "Out:\n" + out + "\n" +
+                "----------------------------------------\n";
     }
 }

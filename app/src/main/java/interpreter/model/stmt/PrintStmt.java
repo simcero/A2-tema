@@ -1,26 +1,18 @@
 package interpreter.model.stmt;
 
 import interpreter.exceptions.MyException;
-import interpreter.model.PrgState;
 import interpreter.model.exp.IExp;
-import interpreter.model.value.IValue;
+import interpreter.model.PrgState;
 
-public class PrintStmt implements IStmt {
-    private final IExp exp;
-
-    public PrintStmt(IExp exp) {
-        this.exp = exp;
-    }
-
+public record PrintStmt(IExp exp) implements IStmt {
     @Override
     public PrgState execute(PrgState state) throws MyException {
-        IValue val = exp.eval(state.getSymTable());
-        state.getOut().add(val);
-        return null;
+        state.getOut().add(exp.eval(state.getSymTable()));
+        return state;
     }
 
     @Override
     public String toString() {
-        return "print(" + exp.toString() + ")";
+        return "print(" + exp + ")";
     }
 }

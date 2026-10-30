@@ -1,7 +1,7 @@
 package interpreter.model.type;
 
-import interpreter.model.value.IValue;
 import interpreter.model.value.BoolValue;
+import interpreter.model.value.IValue;
 
 public class BoolType implements IType {
     @Override
