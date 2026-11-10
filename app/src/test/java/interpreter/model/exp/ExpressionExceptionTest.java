@@ -33,8 +33,6 @@ class ExpressionExceptionTest {
 
     @Test
     void nonIntegerOperandThrows() {
-        // e.g., using a boolean value or wrong type where int is expected
-        // Assuming you have a BoolValue/BoolType setup
         IExp e = new ArithExp(ArithOp.ADD, num(5), new ValueExp(new interpreter.model.value.BoolValue(true)));
         assertThrows(MyException.class, () -> e.eval(symTable));
     }

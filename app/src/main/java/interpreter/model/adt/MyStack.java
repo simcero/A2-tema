@@ -6,7 +6,7 @@ import java.util.Deque;
 import java.util.ArrayDeque;
 
 public class MyStack<T> implements IStack<T> {
-    private final Deque<T> stack = new ArrayDeque<>(); // java.util
+    private final Deque<T> stack = new ArrayDeque<>();
     @Override public void push(T v) { stack.push(v); }
     @Override public T pop() throws ADTException {
         if (stack.isEmpty()) throw new ADTException("pop from an empty stack");

@@ -37,7 +37,6 @@ public class TextMenu {
             try {
                 com.execute();
             } catch (Exception e) {
-                // Catch any unexpected exceptions so the menu doesn't crash
                 System.out.println("ERROR: " + e.getMessage());
             }
         }

@@ -6,12 +6,12 @@ import interpreter.model.type.*;
 import interpreter.model.value.*;
 
 public class Examples {
-    // Ex1: int v; v = 2; print(v)
+    // Ex1:bool a; a = 2; print(a)
     public static final IStmt ex1 = new CompStmt(
-            new VarDeclStmt("v", new IntType()),
+            new VarDeclStmt("a", new BoolType()),
             new CompStmt(
-                    new AssignStmt("v", new ValueExp(new IntValue(2))),
-                    new PrintStmt(new VarExp("v"))
+                    new AssignStmt("a", new ValueExp(new IntValue(2))),
+                    new PrintStmt(new VarExp("a"))
             )
     );
 
@@ -47,6 +47,15 @@ public class Examples {
                                     new PrintStmt(new VarExp("v"))
                             )
                     )
+            )
+    );
+
+    // Ex1:int v; v = 2; print(v)
+    public static final IStmt ex4 = new CompStmt(
+            new VarDeclStmt("v", new IntType()),
+            new CompStmt(
+                    new AssignStmt("v", new ValueExp(new IntValue(2))),
+                    new PrintStmt(new VarExp("v"))
             )
     );
 }

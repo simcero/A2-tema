@@ -7,7 +7,7 @@ import interpreter.repository.IRepository;
 
 public class Controller {
     private final IRepository repo;
-    private boolean displayFlag = false; // Flag to control whether to print the state
+    private boolean displayFlag = false;
 
     public Controller(IRepository repo) {
         this.repo = repo;
@@ -28,7 +28,6 @@ public class Controller {
     public void allStep() throws MyException {
         PrgState prg = repo.getCrtPrg();
 
-        // Optional log file writing or console display
         if (displayFlag) {
             System.out.println(prg);
         }
@@ -40,8 +39,6 @@ public class Controller {
                 System.out.println(prg);
             }
 
-            // If you implemented log file writing in your Repository, you can call it here:
-            // repo.logPrgStateExec(prg);
         }
     }
 }

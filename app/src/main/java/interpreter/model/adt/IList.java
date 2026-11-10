@@ -7,5 +7,5 @@ public interface IList<T> {
     void add(T elem);
     T get(int index) throws MyException;
     int size();
-    List<T> getContent();
+    List<T> toList();
 }

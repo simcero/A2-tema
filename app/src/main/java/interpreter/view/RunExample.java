@@ -14,7 +14,6 @@ public class RunExample extends Command {
     @Override
     public void execute() {
         try {
-            // Enable display flag so you can see the trace step-by-step
             controller.setDisplayFlag(true);
             controller.allStep();
         } catch (MyException e) {

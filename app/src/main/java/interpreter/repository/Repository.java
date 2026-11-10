@@ -14,7 +14,6 @@ public class Repository implements IRepository {
 
     @Override
     public PrgState getCrtPrg() {
-        // For A2, there is only one program state in the list (index 0)
         return prgStates.get(0);
     }
 }
