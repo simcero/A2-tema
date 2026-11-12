@@ -1,44 +1,28 @@
 package interpreter.view;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class TextMenu {
-    private final Map<String, Command> commands;
-
-    public TextMenu() {
-        commands = new HashMap<>();
-    }
-
-    public void addCommand(Command c) {
-        commands.put(c.getKey(), c);
-    }
-
+    private final Map<String, Command> commands = new LinkedHashMap<>(); // in order
+    public void addCommand(Command c) { commands.put(c.getKey(), c); }
     private void printMenu() {
-        System.out.println("\n--- MENU ---");
-        for (Command com : commands.values()) {
-            String line = String.format("%4s : %s", com.getKey(), com.getDescription());
-            System.out.println(line);
-        }
+        for (Command c : commands.values())
+            System.out.printf("%4s : %s%n", c.getKey(), c.getDescription());
     }
-
     public void show() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             printMenu();
-            System.out.print("Input option: ");
-            String key = scanner.nextLine();
-            Command com = commands.get(key);
-            if (com == null) {
-                System.out.println("Invalid option! Try again.");
+            System.out.print("Input the option: ");
+            Command c = commands.get(scanner.nextLine().strip());
+            if (c == null) {
+                System.out.println("Invalid option");
                 continue;
             }
-            try {
-                com.execute();
-            } catch (Exception e) {
-                System.out.println("ERROR: " + e.getMessage());
-            }
+            c.execute();
         }
     }
 }

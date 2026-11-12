@@ -5,23 +5,22 @@ import interpreter.exceptions.MyException;
 
 public class RunExample extends Command {
     private final Controller controller;
-
-    public RunExample(String key, String desc, Controller controller) {
-        super(key, desc);
+    private boolean executed = false;
+    public RunExample(String key, String description, Controller controller) {
+        super(key, description);
         this.controller = controller;
     }
-
     @Override
     public void execute() {
+        if (executed) { // an example runs only once
+            System.out.println("This example has already been executed.");
+            return;
+        }
+        executed = true;
         try {
-            controller.setDisplayFlag(true);
             controller.allStep();
-        } catch (MyException e) {
-            System.out.println("ERROR: " + e.getMessage());
-        } catch (Exception e) {
-            System.out.println("UNEXPECTED ERROR: " + e.getMessage());
+        } catch (MyException e) { // errors the controller cannot solve
+            System.out.println("Error: " + e.getMessage());
         }
     }
-
-
 }
