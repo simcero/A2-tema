@@ -25,20 +25,21 @@ public class Controller {
         return crtStmt.execute(state);
     }
 
-    public void allStep() throws MyException {
-        PrgState prg = repo.getCrtPrg();
-
+    private void display(PrgState prg) {
         if (displayFlag) {
             System.out.println(prg);
         }
+    }
+
+    public void allStep() throws MyException {
+        PrgState prg = repo.getCrtPrg();
+        repo.logPrgStateExec();
+        display(prg);
 
         while (!prg.getExeStack().isEmpty()) {
             oneStep(prg);
-
-            if (displayFlag) {
-                System.out.println(prg);
-            }
-
+            repo.logPrgStateExec();
+            display(prg);
         }
     }
 }
