@@ -52,6 +52,7 @@ public class Examples {
             )
     );
 
+    // ex4:(string varf; (varf = "test.in"; (openRFile(varf); (int varc; …))))
     public static IStmt fileExample(String fileName) {
         return new CompStmt(new VarDeclStmt("varf", new StringType()),
                 new CompStmt(new AssignStmt("varf", new ValueExp(new StringValue(fileName))),
@@ -65,7 +66,7 @@ public class Examples {
     }
     public static final IStmt ex4 = fileExample("test.in");
 
-    // (int a; (int b; (a = 5; (b = 7; (if ((a < b)) then (print(a)) else …)))))
+    // ex5:(int a; (int b; (a = 5; (b = 7; (if ((a < b)) then (print(a)) else …)))))
     public static final IStmt ex5 = new CompStmt(
             new VarDeclStmt("a", new IntType()),
             new CompStmt(
