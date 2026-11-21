@@ -3,37 +3,39 @@ package interpreter.model.stmt;
 import interpreter.exceptions.MyException;
 import interpreter.exceptions.StatementException;
 import interpreter.model.PrgState;
-import interpreter.model.adt.IDictionary;
-import interpreter.model.adt.IList;
-import interpreter.model.adt.IStack;
-import interpreter.model.adt.MyDictionary;
-import interpreter.model.adt.MyList;
-import interpreter.model.adt.MyStack;
+import interpreter.model.adt.*;
 import interpreter.model.exp.*;
 import interpreter.model.type.BoolType;
 import interpreter.model.type.IntType;
 import interpreter.model.value.BoolValue;
 import interpreter.model.value.IntValue;
 import interpreter.model.value.IValue;
+import interpreter.model.value.StringValue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.io.BufferedReader; // Needed if FileTable holds BufferedReader
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class StatementTest {
     private IStack<IStmt> exeStack;
     private IDictionary<String, IValue> symTable;
+    private IDictionary<StringValue, BufferedReader> fileTable;
     private IList<IValue> out;
+    private IHeap heap;
 
     @BeforeEach
     void setUp() {
         exeStack = new MyStack<>();
         symTable = new MyDictionary<>();
+        fileTable = new MyDictionary<>();
         out = new MyList<>();
+        heap = new MyHeap();
     }
 
     private PrgState runStmt(IStmt stmt) throws MyException {
-        PrgState state = new PrgState(exeStack, symTable, out, stmt);
+        PrgState state = new PrgState(exeStack, symTable, out, fileTable,heap,stmt);
         while (!state.getExeStack().isEmpty()) {
             IStmt currentStmt = state.getExeStack().pop();
             currentStmt.execute(state);

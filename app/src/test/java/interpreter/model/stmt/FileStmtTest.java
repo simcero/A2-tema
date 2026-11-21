@@ -19,9 +19,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class FileStmtTest {
     @TempDir
-    Path dir; // a new empty folder for every test
+    Path dir;
     private PrgState state;
-    private ValueExp file; // the expression "<dir>/numbers.in"
+    private ValueExp file;
     @BeforeEach
     void setUp() throws Exception {
         Path f = dir.resolve("numbers.in");
@@ -37,12 +37,17 @@ class FileStmtTest {
         assertEquals(new IntValue(7), state.getSymTable().lookup("x"));
         new ReadFileStmt(file, "x").execute(state);
         assertEquals(new IntValue(0), state.getSymTable().lookup("x"));
+
+        new CloseRFileStmt(file).execute(state);
     }
     @Test
     void openingTheSameFileTwiceThrows() throws MyException {
         new OpenRFileStmt(file).execute(state);
-        assertThrows(StatementException.class,
-                () -> new OpenRFileStmt(file).execute(state));
+        try {
+            assertThrows(StatementException.class,
+                    () -> new OpenRFileStmt(file).execute(state));
+        } finally {
+            new CloseRFileStmt(file).execute(state);
+        }
     }
 }
-

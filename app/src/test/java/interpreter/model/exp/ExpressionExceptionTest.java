@@ -3,6 +3,7 @@ package interpreter.model.exp;
 import interpreter.exceptions.ExpressionException;
 import interpreter.exceptions.MyException;
 import interpreter.model.adt.IDictionary;
+import interpreter.model.adt.IHeap;
 import interpreter.model.adt.MyDictionary;
 import interpreter.model.type.IntType;
 import interpreter.model.value.IntValue;
@@ -14,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ExpressionExceptionTest {
     private IDictionary<String, IValue> symTable;
+    private IHeap heap;
 
     @BeforeEach
     void setUp() {
@@ -27,13 +29,13 @@ class ExpressionExceptionTest {
     @Test
     void divisionByZeroThrows() {
         IExp e = new ArithExp(ArithOp.DIV, num(10), num(0));
-        var ex = assertThrows(ExpressionException.class, () -> e.eval(symTable));
+        var ex = assertThrows(ExpressionException.class, () -> e.eval(symTable,heap));
         assertNotNull(ex.getMessage());
     }
 
     @Test
     void nonIntegerOperandThrows() {
         IExp e = new ArithExp(ArithOp.ADD, num(5), new ValueExp(new interpreter.model.value.BoolValue(true)));
-        assertThrows(MyException.class, () -> e.eval(symTable));
+        assertThrows(MyException.class, () -> e.eval(symTable,heap));
     }
 }

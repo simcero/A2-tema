@@ -12,21 +12,23 @@ public class PrgState {
     private IDictionary<String, IValue> symTable;
     private IList<IValue> out;
     private IDictionary<StringValue, BufferedReader> fileTable;
+    private IHeap heap;
     private final IStmt originalProgram;
 
     public PrgState(IStack<IStmt> exeStack, IDictionary<String, IValue> symTable,
-                    IList<IValue> out,IDictionary<StringValue,BufferedReader> fileTable,IStmt program) {
+                    IList<IValue> out,IDictionary<StringValue,BufferedReader> fileTable,IHeap heap,IStmt program) {
         this.exeStack = exeStack;
         this.symTable = symTable;
         this.out = out;
         this.fileTable = fileTable;
+        this.heap = heap;
         this.originalProgram = program;
         this.exeStack.push(program);
     }
 
     public static PrgState of(IStmt program) {
         return new PrgState(new MyStack<>(), new MyDictionary<>(), new MyList<>(),
-                new MyDictionary<>(), program);
+                new MyDictionary<>(),new MyHeap(), program);
     }
 
     public IStack<IStmt> getExeStack() {
@@ -47,6 +49,10 @@ public class PrgState {
 
     public IDictionary<StringValue, BufferedReader> getFileTable() { return fileTable; }
 
+    public IHeap getHeap(){
+        return heap;
+    }
+
     public void setExeStack(IStack<IStmt> exeStack) {
         this.exeStack = exeStack;
     }
@@ -63,6 +69,8 @@ public class PrgState {
         this.fileTable = fileTable;
     }
 
+    public void setHeap(IHeap heap){this.heap = heap;}
+
     public String toLogString() {
         var sb = new StringBuilder();
         sb.append("ExeStack:\n");
@@ -74,6 +82,8 @@ public class PrgState {
         out.toList().forEach(v -> sb.append(v).append('\n'));
         sb.append("FileTable:\n");
         fileTable.toMap().keySet().forEach(f -> sb.append(f.val()).append('\n'));
+        sb.append("Heap:\n");
+        heap.getContent().forEach((addr, val) -> sb.append(addr).append(" --> ").append(val).append('\n'));
         return sb.toString();
     }
 
@@ -84,7 +94,8 @@ public class PrgState {
                 "exeStack=" + exeStack + ",\n" +
                 "symTable=" + symTable + ",\n" +
                 "out=" + out + ",\n" +
-                "fileTable=" + fileTable + "\n" +
+                "fileTable=" + fileTable +
+                "\nHeap:\n" + heap + "\n" +
                 '}';
     }
 }

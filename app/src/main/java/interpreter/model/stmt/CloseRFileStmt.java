@@ -12,16 +12,13 @@ import java.io.IOException;
 public record CloseRFileStmt(IExp exp) implements IStmt { // S10
     @Override
     public PrgState execute(PrgState state) throws MyException {
-        // 1. Evaluate expression to a StringValue filename
-        if (!(exp.eval(state.getSymTable()) instanceof StringValue fileName))
+        if (!(exp.eval(state.getSymTable(), state.getHeap()) instanceof StringValue fileName))
             throw new StatementException("closeRFile: " + exp + " is not a string");
 
-        // 2. Check if file is present in FileTable
         var fileTable = state.getFileTable();
         if (!fileTable.isDefined(fileName))
             throw new StatementException("closeRFile: " + fileName + " is not open");
 
-        // 3. Close the reader and remove from FileTable
         try {
             BufferedReader reader = fileTable.lookup(fileName);
             reader.close();

@@ -16,22 +16,18 @@ public record ReadFileStmt(IExp exp, String varName) implements IStmt { // S9
     public PrgState execute(PrgState state) throws MyException {
         var symTable = state.getSymTable();
 
-        // 1. Check if varName is declared in symTable and has type int
         if (!symTable.isDefined(varName))
             throw new StatementException("readFile: variable " + varName + " is not declared");
         if (!symTable.lookup(varName).getType().equals(new IntType()))
             throw new StatementException("readFile: variable " + varName + " is not of type int");
 
-        // 2. Evaluate expression to a StringValue filename
-        if (!(exp.eval(symTable) instanceof StringValue fileName))
+        if (!(exp.eval(symTable, state.getHeap()) instanceof StringValue fileName))
             throw new StatementException("readFile: " + exp + " is not a string");
 
-        // 3. Check if file is present in FileTable
         var fileTable = state.getFileTable();
         if (!fileTable.isDefined(fileName))
             throw new StatementException("readFile: " + fileName + " is not open");
 
-        // 4. Read line, parse, and update symTable
         try {
             BufferedReader reader = fileTable.lookup(fileName);
             String line = reader.readLine();
