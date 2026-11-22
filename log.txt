@@ -1,0 +1,529 @@
+PrgState:
+ExeStack: [(int v;(v=2;print(v)))]
+SymTable: {}
+Out: []
+---
+PrgState:
+ExeStack: [(v=2;print(v)), int v]
+SymTable: {}
+Out: []
+---
+PrgState:
+ExeStack: [(v=2;print(v))]
+SymTable: {v=0}
+Out: []
+---
+PrgState:
+ExeStack: [print(v), v=2]
+SymTable: {v=0}
+Out: []
+---
+PrgState:
+ExeStack: [print(v)]
+SymTable: {v=2}
+Out: []
+---
+PrgState:
+ExeStack: []
+SymTable: {v=2}
+Out: [2]
+---
+PrgState:
+ExeStack: [(int v;(v=2;print(v)))]
+SymTable: {}
+Out: []
+---
+PrgState:
+ExeStack: [(v=2;print(v)), int v]
+SymTable: {}
+Out: []
+---
+PrgState:
+ExeStack: [(v=2;print(v))]
+SymTable: {v=0}
+Out: []
+---
+PrgState:
+ExeStack: [print(v), v=2]
+SymTable: {v=0}
+Out: []
+---
+PrgState:
+ExeStack: [print(v)]
+SymTable: {v=2}
+Out: []
+---
+PrgState:
+ExeStack: []
+SymTable: {v=2}
+Out: [2]
+---
+PrgState:
+ExeStack: [(int a;(int v;(a=2;((IF(a > 1) THEN(v=2) ELSE(v=3));print(v)))))]
+SymTable: {}
+Out: []
+---
+PrgState:
+ExeStack: [(int v;(a=2;((IF(a > 1) THEN(v=2) ELSE(v=3));print(v)))), int a]
+SymTable: {}
+Out: []
+---
+PrgState:
+ExeStack: [(int v;(a=2;((IF(a > 1) THEN(v=2) ELSE(v=3));print(v))))]
+SymTable: {a=0}
+Out: []
+---
+PrgState:
+ExeStack: [(a=2;((IF(a > 1) THEN(v=2) ELSE(v=3));print(v))), int v]
+SymTable: {a=0}
+Out: []
+---
+PrgState:
+ExeStack: [(a=2;((IF(a > 1) THEN(v=2) ELSE(v=3));print(v)))]
+SymTable: {a=0, v=0}
+Out: []
+---
+PrgState:
+ExeStack: [((IF(a > 1) THEN(v=2) ELSE(v=3));print(v)), a=2]
+SymTable: {a=0, v=0}
+Out: []
+---
+PrgState:
+ExeStack: [((IF(a > 1) THEN(v=2) ELSE(v=3));print(v))]
+SymTable: {a=2, v=0}
+Out: []
+---
+PrgState:
+ExeStack: [print(v), (IF(a > 1) THEN(v=2) ELSE(v=3))]
+SymTable: {a=2, v=0}
+Out: []
+---
+PrgState:
+ExeStack: [print(v), v=2]
+SymTable: {a=2, v=0}
+Out: []
+---
+PrgState:
+ExeStack: [print(v)]
+SymTable: {a=2, v=2}
+Out: []
+---
+PrgState:
+ExeStack: []
+SymTable: {a=2, v=2}
+Out: [2]
+---
+PrgState:
+ExeStack: [(int v;(v=0;(WHILE(v < 3) (print(v);v=v + 1))))]
+SymTable: {}
+Out: []
+---
+PrgState:
+ExeStack: [(v=0;(WHILE(v < 3) (print(v);v=v + 1))), int v]
+SymTable: {}
+Out: []
+---
+PrgState:
+ExeStack: [(v=0;(WHILE(v < 3) (print(v);v=v + 1)))]
+SymTable: {v=0}
+Out: []
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1)), v=0]
+SymTable: {v=0}
+Out: []
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1))]
+SymTable: {v=0}
+Out: []
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1)), (print(v);v=v + 1)]
+SymTable: {v=0}
+Out: []
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1)), v=v + 1, print(v)]
+SymTable: {v=0}
+Out: []
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1)), v=v + 1]
+SymTable: {v=0}
+Out: [0]
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1))]
+SymTable: {v=1}
+Out: [0]
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1)), (print(v);v=v + 1)]
+SymTable: {v=1}
+Out: [0]
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1)), v=v + 1, print(v)]
+SymTable: {v=1}
+Out: [0]
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1)), v=v + 1]
+SymTable: {v=1}
+Out: [0, 1]
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1))]
+SymTable: {v=2}
+Out: [0, 1]
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1)), (print(v);v=v + 1)]
+SymTable: {v=2}
+Out: [0, 1]
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1)), v=v + 1, print(v)]
+SymTable: {v=2}
+Out: [0, 1]
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1)), v=v + 1]
+SymTable: {v=2}
+Out: [0, 1, 2]
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1))]
+SymTable: {v=3}
+Out: [0, 1, 2]
+---
+PrgState:
+ExeStack: []
+SymTable: {v=3}
+Out: [0, 1, 2]
+---
+PrgState:
+ExeStack: [(int v;(v=0;(WHILE(v < 3) (print(v);v=v + 1))))]
+SymTable: {}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(v=0;(WHILE(v < 3) (print(v);v=v + 1))), int v]
+SymTable: {}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(v=0;(WHILE(v < 3) (print(v);v=v + 1)))]
+SymTable: {v=0}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1)), v=0]
+SymTable: {v=0}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1))]
+SymTable: {v=0}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1)), (print(v);v=v + 1)]
+SymTable: {v=0}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1)), v=v + 1, print(v)]
+SymTable: {v=0}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1)), v=v + 1]
+SymTable: {v=0}
+Out: [0]
+FileTable: {}
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1))]
+SymTable: {v=1}
+Out: [0]
+FileTable: {}
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1)), (print(v);v=v + 1)]
+SymTable: {v=1}
+Out: [0]
+FileTable: {}
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1)), v=v + 1, print(v)]
+SymTable: {v=1}
+Out: [0]
+FileTable: {}
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1)), v=v + 1]
+SymTable: {v=1}
+Out: [0, 1]
+FileTable: {}
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1))]
+SymTable: {v=2}
+Out: [0, 1]
+FileTable: {}
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1)), (print(v);v=v + 1)]
+SymTable: {v=2}
+Out: [0, 1]
+FileTable: {}
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1)), v=v + 1, print(v)]
+SymTable: {v=2}
+Out: [0, 1]
+FileTable: {}
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1)), v=v + 1]
+SymTable: {v=2}
+Out: [0, 1, 2]
+FileTable: {}
+---
+PrgState:
+ExeStack: [(WHILE(v < 3) (print(v);v=v + 1))]
+SymTable: {v=3}
+Out: [0, 1, 2]
+FileTable: {}
+---
+PrgState:
+ExeStack: []
+SymTable: {v=3}
+Out: [0, 1, 2]
+FileTable: {}
+---
+PrgState:
+ExeStack: [(string varf;(varf=test.in;(openReadFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))))))]
+SymTable: {}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(varf=test.in;(openReadFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))))), string varf]
+SymTable: {}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(varf=test.in;(openReadFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))))))]
+SymTable: {varf=}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(openReadFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))))), varf=test.in]
+SymTable: {varf=}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(openReadFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))))]
+SymTable: {varf=test.in}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))), openReadFile(varf)]
+SymTable: {varf=test.in}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(string varf;(varf=test.in;(openReadFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))))))]
+SymTable: {}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(varf=test.in;(openReadFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))))), string varf]
+SymTable: {}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(varf=test.in;(openReadFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))))))]
+SymTable: {varf=}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(openReadFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))))), varf=test.in]
+SymTable: {varf=}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(openReadFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))))]
+SymTable: {varf=test.in}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))), openReadFile(varf)]
+SymTable: {varf=test.in}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(string varf;(varf=test.in;(openReadFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))))))]
+SymTable: {}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(varf=test.in;(openReadFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))))), string varf]
+SymTable: {}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(varf=test.in;(openReadFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))))))]
+SymTable: {varf=}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(openReadFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))))), varf=test.in]
+SymTable: {varf=}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(openReadFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))))]
+SymTable: {varf=test.in}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))), openReadFile(varf)]
+SymTable: {varf=test.in}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(string varf;(varf=test.in;(openReadFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))))))]
+SymTable: {}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(varf=test.in;(openReadFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))))), string varf]
+SymTable: {}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(varf=test.in;(openReadFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))))))]
+SymTable: {varf=}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(openReadFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))))), varf=test.in]
+SymTable: {varf=}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(openReadFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))))]
+SymTable: {varf=test.in}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))), openReadFile(varf)]
+SymTable: {varf=test.in}
+Out: []
+FileTable: {}
+---
+PrgState:
+ExeStack: [(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))))]
+SymTable: {varf=test.in}
+Out: []
+FileTable: {test.in=java.io.BufferedReader@330bedb4}
+---
+PrgState:
+ExeStack: [(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))), int varc]
+SymTable: {varf=test.in}
+Out: []
+FileTable: {test.in=java.io.BufferedReader@330bedb4}
+---
+PrgState:
+ExeStack: [(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))]
+SymTable: {varf=test.in, varc=0}
+Out: []
+FileTable: {test.in=java.io.BufferedReader@330bedb4}
+---
+PrgState:
+ExeStack: [(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))), readFile(varf, varc)]
+SymTable: {varf=test.in, varc=0}
+Out: []
+FileTable: {test.in=java.io.BufferedReader@330bedb4}
+---
+PrgState:
+ExeStack: [(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))]
+SymTable: {varf=test.in, varc=10}
+Out: []
+FileTable: {test.in=java.io.BufferedReader@330bedb4}
+---
+PrgState:
+ExeStack: [(readFile(varf, varc);(print(varc);closeRFile(varf))), print(varc)]
+SymTable: {varf=test.in, varc=10}
+Out: []
+FileTable: {test.in=java.io.BufferedReader@330bedb4}
+---
+PrgState:
+ExeStack: [(readFile(varf, varc);(print(varc);closeRFile(varf)))]
+SymTable: {varf=test.in, varc=10}
+Out: [10]
+FileTable: {test.in=java.io.BufferedReader@330bedb4}
+---
+PrgState:
+ExeStack: [(print(varc);closeRFile(varf)), readFile(varf, varc)]
+SymTable: {varf=test.in, varc=10}
+Out: [10]
+FileTable: {test.in=java.io.BufferedReader@330bedb4}
+---
+PrgState:
+ExeStack: [(print(varc);closeRFile(varf))]
+SymTable: {varf=test.in, varc=20}
+Out: [10]
+FileTable: {test.in=java.io.BufferedReader@330bedb4}
+---
+PrgState:
+ExeStack: [closeRFile(varf), print(varc)]
+SymTable: {varf=test.in, varc=20}
+Out: [10]
+FileTable: {test.in=java.io.BufferedReader@330bedb4}
+---
+PrgState:
+ExeStack: [closeRFile(varf)]
+SymTable: {varf=test.in, varc=20}
+Out: [10, 20]
+FileTable: {test.in=java.io.BufferedReader@330bedb4}
+---
+PrgState:
+ExeStack: []
+SymTable: {varf=test.in, varc=20}
+Out: [10, 20]
+FileTable: {}
+---
