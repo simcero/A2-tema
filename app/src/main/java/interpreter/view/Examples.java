@@ -178,7 +178,27 @@ public class Examples {
                     )
             );
 
+    // ex9: Ref int v; new(v, 20); Ref Ref int a; new(a, v); new(v, 30); print(rH(rH(a)))
 
+    public static final IStmt ex9 =
+            new CompStmt(
+                    new VarDeclStmt("v",new RefType(new IntType())),
+                    new CompStmt(
+                            new NewStmt("v",new ValueExp(new IntValue(20))),
+                            new CompStmt(
+                                    new VarDeclStmt("a",new RefType(new RefType(new IntType()))),
+                                    new CompStmt(
+                                            new NewStmt("a",new VarExp("v")),
+                                            new CompStmt(
+                                                    new NewStmt("v",new ValueExp(new IntValue(30))),
+                                                    new PrintStmt(
+                                                            new ReadHeapExp(new ReadHeapExp(new VarExp("a")))
+                                                    )
+                                            )
+                                    )
+                            )
+                    )
+            );
 
     // ex10: int v; v = 4; (while (v > 0) (print(v); v = v - 1)); print(v)
     public static final IStmt ex10 =
